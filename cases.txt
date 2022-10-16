@@ -1,0 +1,26 @@
+TEST-CASES
+
+
+1. Search responses sorting
+    Predictions:
+        Set greate GSM-connection and togle on mobile data
+    Steps:
+        1. Open the Play Market
+        2. Find and tap on the search box
+        3. Input "dostaevskiy" in the search string
+        4. Choose the first correct option
+        5. In the search response find and open application "dostaevskiy"
+    Expected result:
+        Application's page had opened. Page has name, description, estimation, screenshots, installing button.
+
+
+2. Swipe application's elements
+    Predictions:
+        Set greate GSM-connection and togle on mobile data, app "dostaevskiy" is installed.
+    Steps:
+        1. Open the app "dostaevskiy"
+        2. Choose any city
+        3. Swipe down and up
+        4. Swipe left and right
+    Expected result:
+        Elements had scrolled according to the direction.

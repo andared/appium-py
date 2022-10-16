@@ -17,7 +17,7 @@ def connection() -> webdriver.Remote:
             'platformName': 'Android',
             'unicodeKeyboard': 'true',
             'resetKeyboard': 'true',
-            'noReset': 'true',
+            'noReset': 'false',
             'appActivity': '.AssetBrowserActivity',
             'appPackage': 'com.android.vending'
         }
