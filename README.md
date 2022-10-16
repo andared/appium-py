@@ -5,6 +5,8 @@
 ### In Pipfile are all information about libraries and modules
 ### Start script: $ test ./src
 ### Emulator
-``` Pixel 4 API 30
+``` 
+    Pixel 4 API 30
     Resolution: 1080 x 2280
-    dp: 393 x 830```
+    dp: 393 x 830
+```
