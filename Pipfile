@@ -4,7 +4,8 @@ url = "https://${NEXUS_PYPI_USER}:${NEXUS_PYPI_PASSWORD}@${NEXUS_HOST}/repositor
 verify_ssl = true
 
 [packages]
-allure-pytest = "*"
+Appium-Python-Client = "*"
+selenium = "*"  # In class By in selenium.webdriver.common.by I add constant ACCESSIBILITY_ID = "accessibility id"
 flake8 = "*"
 pylama = "*"
 pytest = "*"
