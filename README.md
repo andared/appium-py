@@ -3,7 +3,7 @@
 ### APK file is in directory
 ### Test-cases are in cases.txt
 ### In Pipfile are all information about libraries and modules
-### Start script: $ test ./src
+### Start script: $ pytest ./src
 ### Emulator
 ``` 
     Pixel 4 API 30

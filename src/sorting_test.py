@@ -2,7 +2,6 @@ from enum import Enum
 import logging
 import time
 from appium.webdriver.common.touch_action import TouchAction
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from appium import webdriver
@@ -16,9 +15,9 @@ class Search(Enum):
         desc = 'Order pizza 🍕, sushi 🍣, wok 🥡, burgers 🍔, shawarma and get a cake as a gift 🎁'
 
 
-@pytest.mark.usefixtures('sort')
 @pytest.mark.sorting
-def test_sorting(driver: webdriver.Remote):
+def test_sorting(driver_sort: webdriver.Remote):
+        driver = driver_sort
         touch = TouchAction(driver)
         driver.implicitly_wait(5)
         assert driver.current_activity == '.AssetBrowserActivity'

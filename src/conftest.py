@@ -10,8 +10,8 @@ class ErorrConnection(Exception):
     pass
 
 
-@pytest.fixture(scope="session", autouse=True, name="driver")
-def connection() -> webdriver.Remote:
+@pytest.fixture()
+def driver_sort() -> webdriver.Remote:
     try:
         desired_caps = {
             'platformName': 'Android',
@@ -28,6 +28,9 @@ def connection() -> webdriver.Remote:
         logging.info('Start connecting to device')
         driver = webdriver.Remote(Settings.HOST + '/wd/hub', desired_caps)
         logging.info('Connecting succesfull')
+        driver.set_gsm_signal(GsmSignalStrength.GREAT)
+        driver.set_network_speed(NetSpeed.FULL)
+        driver.start_activity('com.android.vending', '.AssetBrowserActivity')
     except:
         logging.warning('Could not connect to device')
         raise ErorrConnection('Could not connect to device')
@@ -36,17 +39,32 @@ def connection() -> webdriver.Remote:
     logging.info('Disconnecting from device')
 
 
-@pytest.fixture(name='sort')
-def sort(driver: webdriver.Remote) -> None:
-        driver.set_gsm_signal(GsmSignalStrength.GREAT)
-        driver.set_network_speed(NetSpeed.FULL)
-        driver.start_activity('com.android.vending', '.AssetBrowserActivity')
-
-
-@pytest.fixture(name='swipe')
-def swipe(driver: webdriver.Remote) -> None:
-        driver.set_gsm_signal(GsmSignalStrength.GREAT)
-        driver.set_network_speed(NetSpeed.FULL)
-        driver.install_app('C:/Workflow/mobile-automation/test.apk')
-        driver.start_activity('ru.dostaevsky.android', None)
+@pytest.fixture()
+def driver_swipe() -> webdriver.Remote:
+    try:
+        desired_caps = {
+            'platformName': 'Android',
+            'appium:app': Settings.APK,
+            'newCommandTimeout': '30',
+            'language': 'en',
+            'locale': 'RU',
+            'orientation': 'PORTRAIT',
+            'unicodeKeyboard': 'true',
+            'resetKeyboard': 'true',
+            'noReset': 'false',
+            'fastReset': 'true',
+            'clearSystemFiles': 'true'
+        }
+        logging.info('Start connecting to device')
+        driver = webdriver.Remote(Settings.HOST + '/wd/hub', desired_caps)
+        logging.info('Connecting succesfull')
         logging.info('App installed')
+        driver.set_gsm_signal(GsmSignalStrength.GREAT)
+        driver.set_network_speed(NetSpeed.FULL)
+    except ErorrConnection:
+        logging.warning('Could not connect to device')
+        raise ErorrConnection('Could not connect to device')
+    yield driver
+    driver.remove_app('ru.dostaevsky.android')
+    driver.quit()
+    logging.info('Disconnecting from device')
