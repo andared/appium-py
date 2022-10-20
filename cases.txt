@@ -18,9 +18,12 @@ TEST-CASES
     Predictions:
         Set greate GSM-connection and togle on mobile data, app "dostaevskiy" is installed.
     Steps:
-        1. Open the app "dostaevskiy"
-        2. Choose any city
-        3. Swipe down and up
-        4. Swipe left and right
+        1. Open app "dostaevskiy"
+        2. Choose city "SPB" if it need
+        3. Swipe down bottom
+        3. Swipe left and right promo for two once
+        4. Swipe up and down categories for two once
+        5. Tap on menu button
+        6. Swipe up hot dishes
     Expected result:
         Elements had scrolled according to the direction.

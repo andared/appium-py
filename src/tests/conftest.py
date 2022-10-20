@@ -18,6 +18,7 @@ def driver() -> webdriver.Remote:
     logging.info('App installed')
     driver.set_gsm_signal(GsmSignalStrength.GREAT)
     driver.set_network_speed(NetSpeed.FULL)
+    driver.implicitly_wait(10)
     yield driver
     driver.remove_app('ru.dostaevsky.android')
     logging.info('Disconnecting from device')
