@@ -2,8 +2,8 @@
 ---------------------------------------
 ### APK file is in directory
 ### Test-cases are in cases.txt
-### In Pipfile are all information about libraries and modules
-### Start script: $ pytest ./src
+### In Pipfile are all information about libraries and modules. Duplicate is in requirements.md
+### Start script: $ pytest
 ### Emulator
 ``` 
     Pixel 4 API 30

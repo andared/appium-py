@@ -1,17 +1,19 @@
 TEST-CASES
 
 
-1. Search responses sorting
+1. Sorting juices in drinks page
     Predictions:
-        Set greate GSM-connection and togle on mobile data
+        Set greate GSM-connection and togle on mobile data, app "dostaevskiy" is installed.
     Steps:
-        1. Open the Play Market
-        2. Find and tap on the search box
-        3. Input "dostaevskiy" in the search string
-        4. Choose the first correct option
-        5. In the search response find and open application "dostaevskiy"
+        1. Open app "dostaevskiy"
+        2. Choose city "SPB" if it need
+        3. Swipe down hint
+        4. Swipe up categories
+        5. Tap the Drinks
+        6. Swipe to the bottom
+        7. Find and check all positions with juice
     Expected result:
-        Application's page had opened. Page has name, description, estimation, screenshots, installing button.
+        All of juices have volume 0.97 liters and price 189 rubles
 
 
 2. Swipe application's elements
@@ -20,7 +22,7 @@ TEST-CASES
     Steps:
         1. Open app "dostaevskiy"
         2. Choose city "SPB" if it need
-        3. Swipe down bottom
+        3. Swipe down hint
         3. Swipe left and right promo for two once
         4. Swipe up and down categories for two once
         5. Tap on menu button

@@ -17,9 +17,14 @@ def driver() -> webdriver.Remote:
     logging.info('Connecting succesfull')
     logging.info('App installed')
     driver.set_gsm_signal(GsmSignalStrength.GREAT)
-    driver.set_network_speed(NetSpeed.FULL)
-    driver.implicitly_wait(10)
     yield driver
     driver.remove_app('ru.dostaevsky.android')
     logging.info('Disconnecting from device')
     driver.quit()
+
+
+@pytest.fixture(autouse=True)
+def check_app(driver: webdriver.Remote):
+    if driver.is_app_installed('ru.dostaevsky.android'):
+        driver.launch_app()
+    driver.implicitly_wait(10)

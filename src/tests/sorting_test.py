@@ -1,4 +1,4 @@
-from src.AppPages import SelectCityActivityRE, MainActivityRE
+from src.AppPages import SelectCityActivityRE, MainActivityRE, DrinksPage
 import pytest
 
 
@@ -9,7 +9,8 @@ def test_sorting(driver):
     main.swipe_down_bottom()
     main.swipe_up_categories()
     main.click_drinks()
-    main.swipe_up_drinks()
-    for _ in range(3):
-        main.check_juices()
-        main.short_swipe_down_category()
+    drinks = DrinksPage(driver)
+    drinks.swipe_up_drinks()
+    for _ in range(4):
+        drinks.check_juices()
+        drinks.short_swipe_down_drinks()
