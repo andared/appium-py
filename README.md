@@ -2,7 +2,7 @@
 ---------------------------------------
 ### APK file is in directory
 ### Test-cases are in cases.txt
-### In Pipfile are all information about libraries and modules. Duplicate is in requirements.md
+### In Pipfile are all information about libraries and modules. Duplicate is in requirements.txt
 ### Start script: $ pytest
 ### Emulator
 ``` 
